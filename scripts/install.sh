@@ -9,7 +9,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # add
 if ! dkms status -m $dkms_name -v $dkms_version | egrep '(added|built|installed)' >/dev/null ; then
-  dkms add ${DIR}/../linux/drivers/hid
+  cd "$DIR/../linux/drivers"
+  dkms add hid
 fi
 
 # build
